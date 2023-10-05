@@ -1,13 +1,26 @@
-export default function Card(props) {
+import "./Card.css"
+
+export default function Card({ 
+   onClose, 
+   name, 
+   status, 
+   species, 
+   gender, 
+   origin, 
+   image,
+   id
+}) {
    return (
-      <div>
-         <button onClick={props.onClose}>X</button>
-         <h4>{props.name}</h4>
-         <h4>{props.status}</h4>
-         <h4>{props.species}</h4>
-         <h4>{props.gender}</h4>
-         <h4>{props.origin}</h4>
-         <img src={props.image} alt='imagen' />
+      <div className="Card">
+         <img src={image} alt='imagen' />
+         <div className="information">
+            <div className="divButtoClose"><button className="buttonClose" onClick={()=>onClose(id)}>X</button></div>
+            <h4 className="name">{name}</h4>
+            <h4>{status}</h4>
+            <h4>{species}</h4>
+            <h4>{gender}</h4>
+            <h4>{origin}</h4>
+         </div>
       </div>
    );
 }

@@ -1,0 +1,8 @@
+.Cards{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: rgb(39, 43, 51);
+    min-height: 50vh;
+    max-height: auto;
+}
