@@ -1,0 +1,32 @@
+.divForm{
+    background-color: rgb(39, 43, 51);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1{
+    /* margin-bottom:40px; */
+}
+form{
+    background-color: rgb(245, 245, 245);
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+input.email, input.password{
+    width: 100%;
+}
+
+.error{
+    color: rgb(248, 66, 66);
+}

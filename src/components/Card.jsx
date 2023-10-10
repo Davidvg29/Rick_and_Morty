@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 import "./Card.css"
 
 export default function Card({ 
@@ -15,7 +16,9 @@ export default function Card({
          <img src={image} alt='imagen' />
          <div className="information">
             <div className="divButtoClose"><button className="buttonClose" onClick={()=>onClose(id)}>X</button></div>
-            <h4 className="name">{name}</h4>
+            <Link to={`/detail/${id}`}>
+               <h4 className="name">{name}</h4>
+            </Link>
             <h4>{status}</h4>
             <h4>{species}</h4>
             <h4>{gender}</h4>
