@@ -1,14 +1,15 @@
 import {Routes, Route, useNavigate} from "react-router-dom"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import axios from "axios"
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
-import Footer from './components/Footer.jsx';
-import About from "./components/About";
-import Detail from "./components/Detail";
-import Error from "./components/Error.jsx";
-import Form from "./components/Form.jsx";
+import Cards from './components/cards/Cards.jsx';
+import Nav from './components/nav/Nav';
+import Footer from './components/footer/Footer.jsx';
+import About from "./components/about/About.jsx";
+import Detail from "./components/detail/Detail.jsx";
+import Error from "./components/error/Error.jsx";
+import Form from "./components/form/Form.jsx";
+import Favorites from "./components/favorites/Favorites";
 
 // import Card from './components/Card.jsx';
 // import SearchBar from './components/SearchBar.jsx';
@@ -54,17 +55,25 @@ function App() {
       if(userData.email===email && userData.password===password){
          setAccess(true)
          navigate("/home")
-      }else{alert("datos incorrectos")}
+      }else{
+         alert("datos incorrectos")
+         
+      }
    }
 
-   useEffect(() => {
+   useMemo(() => {
       !access && navigate('/');
    }, [access]);
+
+   // useEffect(() => {
+   //    !access && navigate('/');
+   // }, [access]);
 
    return (
       <div className='App'>
          <Nav onSearch={onSearch}/>
          <Routes>
+            <Route path="*" element={<Error/>}/>
             <Route path="/" element={
                <Form login={login}/>}/>
             <Route path="/home" element={
@@ -72,7 +81,7 @@ function App() {
                onClose={onClose}/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/detail/:id" element={<Detail/>}/>
-            <Route path="*" element={<Error/>}/>
+            <Route path="/favorites" element={<Favorites/>} />
          </Routes>
          <Footer/>
       </div>
